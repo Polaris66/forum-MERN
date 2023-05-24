@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins");
+:root {
+  --charcoal: #373f51;
+  --emerald: #5dd39e;
+  --periwinkle: #d1d2f9;
+  --bittersweet: #ff5a5f;
+  --fireenginered: #c81d25;
+  font-family: "Poppins";
+}
+
+.navbar nav {
+  border-bottom: solid;
+  background-color: var(--periwinkle);
+  padding: 1%;
+  display: flex;
+  justify-content: space-between;
+}
+.navbar nav .title {
+  text-align: left;
+  margin-left: 1%;
+  flex-grow: 1;
+}
+.newPost {
+  display: flex;
+  justify-content: space-evenly;
+
+  padding: 1%;
+  margin-top: 1%;
+}
+.newPost button {
+  font-family: inherit;
+
+  background-color: var(--emerald);
+
+  width: 80%;
+  padding: 1%;
+  border-radius: 30px;
+
+  font-size: x-large;
+}
+
+.newPost input {
+  width: 80%;
+  padding: 1%;
+
+  font-size: x-large;
+}
+
+.postCard {
+  padding-left: 1%;
+  padding-right: 1%;
+  font-size: x-large;
+  border: solid;
+  border-width: 2px;
+  border-top-width: 4px;
+  margin: 2%;
+}
