@@ -13,14 +13,15 @@ To learn and demonstrate MERN Stack and Authentication.
 - See posts (posts in database, fetched to front end)
 - Add posts
 - Basic Styles
+- Basic Login and Signup
+- Add JSON Web Token and Cookies
 
 ## TODO
 
 ### Functionality
 
 - Post Ordering
-
-- Login and Signup
+- Add Password Encryption
 - See Specific posts and comments[router functionality]
 
 ### Style

@@ -1,14 +1,15 @@
 require("dotenv").config();
 const { connect } = require("./connect.js");
-const { Post } = require("../models/post.js");
+const { User } = require("../models/user.js");
 
 const deleteAll = async () => {
   connect().then(
     () => {
       console.log("Connected");
-      Post.deleteMany({}).then(
+      User.deleteMany({}).then(
         () => {
-          console.log("Cleared Database");
+          console.log("Cleared Users");
+          process.exit();
         },
         (error) => {
           console.log(error);

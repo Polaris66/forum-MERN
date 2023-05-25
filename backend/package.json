@@ -6,15 +6,19 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "clear": "node database/clear.js"
+    "clear": "node database/clearPosts.js && node database/clearUsers.js",
+    "clearPosts": "node database/clearPosts.js",
+    "clearUsers": "node database/clearUsers.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.2.0"
   },
   "devDependencies": {

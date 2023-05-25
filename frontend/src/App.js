@@ -1,83 +1,41 @@
-import { useEffect, useState } from "react";
-import request from "./services/request.js";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import "./App.css";
 
-function App() {
-  const [posts, setPosts] = useState([]);
-  const [editing, setEditing] = useState(false);
-  const [newPost, setNewPost] = useState("");
+import Home from "./pages/Home/Home.js";
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
+import Navbar from "./components/Navbar/Navbar";
+import { useEffect, useState } from "react";
 
-  //Get Posts from backend
-  const getPosts = async () => {
-    const res = await request.get("/");
-    setPosts(res.data);
+import request from "./services/request";
+
+function App() {
+  const [user, setUser] = useState(null);
+
+  //Get User from backend
+  const getUser = async () => {
+    const res = await request.get("/auth/");
+    setUser(res.data.body.username);
   };
   useEffect(() => {
-    getPosts();
+    getUser();
   }, []);
-
-  const addPost = async () => {
-    setEditing(false);
-    if (newPost !== "") {
-      const res = await request.post("/", {
-        title: newPost,
-      });
-      setPosts((prevPosts) => {
-        return [...prevPosts, res.data];
-      });
-    }
-    setNewPost("");
-  };
-
   return (
-    <div className="App">
-      <div className="navbar">
-        <nav>
-          <div className="title">
-            <h2>Forum App</h2>
-          </div>
-        </nav>
-      </div>
-      <div className="newPost">
-        {editing && (
-          <input
-            type="text"
-            value={newPost}
-            onChange={(e) => {
-              setNewPost(e.target.value);
-            }}
-            onBlur={() => {
-              addPost();
-            }}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                addPost();
-              }
-            }}
-            autoFocus
-          />
-        )}
-        {!editing && (
-          <button
-            type="button"
-            onClick={() => {
-              setEditing(true);
-            }}
-          >
-            New Post
-          </button>
-        )}
-      </div>
-      <div className="posts">
-        {posts.map((post) => {
-          return (
-            <div className="postCard">
-              <p key={post._id}>{post.title}</p>
-            </div>
-          );
-        })}
-      </div>
-    </div>
+    <BrowserRouter>
+      <Navbar user={user} setUser={setUser} />
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route
+          path="/login"
+          element={<Login user={user} setUser={setUser} />}
+        ></Route>
+        <Route
+          path="/register"
+          element={<Register user={user} setUser={setUser} />}
+        ></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

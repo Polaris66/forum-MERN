@@ -1,0 +1,31 @@
+.newPost {
+  display: flex;
+  justify-content: space-evenly;
+
+  padding: 1%;
+  margin-top: 1%;
+}
+.newPost button {
+  width: 80%;
+  padding: 1%;
+  border-radius: 30px;
+
+  font-size: x-large;
+}
+
+.newPost input {
+  width: 80%;
+  padding: 1%;
+
+  font-size: x-large;
+}
+
+.postCard {
+  padding-left: 1%;
+  padding-right: 1%;
+  font-size: x-large;
+  border: solid;
+  border-width: 2px;
+  border-top-width: 4px;
+  margin: 2%;
+}

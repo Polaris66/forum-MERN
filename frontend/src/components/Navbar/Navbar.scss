@@ -1,0 +1,36 @@
+.navbar nav {
+  border-bottom: solid;
+  background-color: var(--periwinkle);
+  padding: 1%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.navbar nav .title {
+  text-align: left;
+  margin-left: 1%;
+  flex-grow: 1;
+}
+
+.navbar .login {
+  display: flex;
+  justify-content: space-evenly;
+
+  width: 10%;
+  padding: 1%;
+}
+
+.navbar .login button {
+  width: 100%;
+}
+
+.navbar .register {
+  display: flex;
+  justify-content: space-evenly;
+
+  padding: 1%;
+  width: 10%;
+}
+
+.navbar .register button {
+  width: 100%;
+}
